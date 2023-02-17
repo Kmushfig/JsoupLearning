@@ -10,34 +10,29 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-//        String pageCode = "?page@2232@asa@sasa@alnskal@aska";
-//        String [] arrStr = pageCode.split("@", 6) ;
-//        for ( String arrv : arrStr) {
-//
-//            System.out.println(arrv);
-//
-//        }
-
 
 //        Document document = null;
-        Document doc = Jsoup.connect("https://turbo.az/autos?page=1").get();
-        Elements productName = doc.getElementsByClass("products-i");
+//        int j = 1;
+        for (int j = 1; j < 2 ; j++) {
 
-        for (Element product : productName) {
+            Document doc = Jsoup.connect("https://turbo.az/autos?page=" + j).get();
+            Elements productName = doc.getElementsByClass("products-i");
 
-            Elements carName = product.getElementsByClass("products-i__name products-i__bottom-text");
-            Elements attributes = product.getElementsByClass("products-i__attributes products-i__bottom-text");
-            Elements price = product.getElementsByClass("products-i__price products-i__bottom-text");
-            Elements dateTimeAndPlace = product.getElementsByClass("products-i__datetime");
+            for (Element product : productName) {
 
-//            String attributesText = attributes.text(); //split???
-//            System.out.println(attributes);
+                Elements carName = product.getElementsByClass("products-i__name products-i__bottom-text");
+                Elements attributes = product.getElementsByClass("products-i__attributes products-i__bottom-text");
+                String[] atribittooSplittoo = attributes.get(0).text().split(", ");
+                String year = atribittooSplittoo[0];
+                String engine = atribittooSplittoo[1];
+                String odoMetr = atribittooSplittoo[2];
+                Elements price = product.getElementsByClass("products-i__price products-i__bottom-text");
+                Elements dateTimeAndPlace = product.getElementsByClass("products-i__datetime");
 
+//              System.out.println("Car model: " + carName.text() + "  -  " + "Attributes: " + attributes.text() + "  -  "
+//              + "Price: " + price.text() + "  -  " + "Date time and place: " + dateTimeAndPlace.text());
 
-            System.out.println("Car model: " + carName.text() + "  -  " + "Attributes: " + attributes.text() + "  -  "
-                    + "Price: " + price.text() + "  -  " + "Date time and place: " + dateTimeAndPlace.text());
-
-        }
+            }
 //        String text = productName.text();
 
 //        System.out.println("Model Marka = " +text.split(",")[0]);
@@ -48,5 +43,13 @@ public class Main {
 
 //        System.out.println(doc);
 
-           }
+
+//        String pageCode = "?page@2232@asa@sasa@alnskal@aska";
+//        String [] arrStr = pageCode.split("@", 6) ;
+//        for ( String arrv : arrStr) {
+//            System.out.println(arrv);
+//        }
+
+        }
+    }
 }
