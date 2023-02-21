@@ -29,8 +29,8 @@ public class Main {
                 Elements price = product.getElementsByClass("products-i__price products-i__bottom-text");
                 Elements dateTimeAndPlace = product.getElementsByClass("products-i__datetime");
 
-//              System.out.println("Car model: " + carName.text() + "  -  " + "Attributes: " + attributes.text() + "  -  "
-//              + "Price: " + price.text() + "  -  " + "Date time and place: " + dateTimeAndPlace.text());
+              System.out.println("Car model: " + carName.text() + "  -  " + "Attributes: " + attributes.text() + "  -  "
+              + "Price: " + price.text() + "  -  " + "Date time and place: " + dateTimeAndPlace.text());
 
             }
 //        String text = productName.text();
