@@ -20,9 +20,10 @@ public class ModelsOfTheCars {
         Elements options2 = doc.getElementsByClass("js-search-select-model").select("option");
 
         for (Element carModel : options2 ) {
-            String name = carModel.text();
-            String value = carModel.val();
-            System.out.println(value + "  " + name + "\n");
+            String modelName = carModel.text();
+            String modelId = carModel.val();
+            String makeId = carModel.attr("class");
+            System.out.println(makeId + "  " + modelName + " " + modelId + "\n");
         }
     }
 }
