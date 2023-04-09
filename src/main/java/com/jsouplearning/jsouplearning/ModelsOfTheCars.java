@@ -2,6 +2,8 @@ package com.jsouplearning.jsouplearning;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,27 +17,34 @@ public class ModelsOfTheCars {
 
         Document doc = Jsoup.connect("https://turbo.az/").get();
 
-        Elements end = doc.getElementsByClass("main-search__row main-search__row-4 tz-d-grid");
-//        Elements options = doc.getElementsByClass("js-search-select-make").select("option");
-//        Elements options2 = doc.getElementsByClass("js-search-select-model").select("option");
 
-        for (Element carModel : end) {
+//        Elements make = doc.getElementsByClass("js-search-select-make").select("option");
+//        for (Element carMake : make) {
 
-            String makeName = carModel.getElementsByClass("js-search-select-make").text();
-            String makeId = carModel.getElementsByClass("js-search-select-model").attr("class");
-            String modelName = carModel.getElementsByClass("js-search-select-model").text();
-            String modelId = carModel.getElementsByClass("js-search-select-model").val();
-//            Elements elements = doc.getElementsByClass("select optional form-control js-search-select-make");
-//            String makeId = elements.attr("class");
-//            String makeName = carModel.text();
-//            Elements modelElements = doc.getElementsByClass("js-search-select-model");
-//            String modelName = modelElements.text();
-//            String modelId = modelElements.val();
+//            String makeName = carMake.text();
+//            String makeId = carMake.val();
 
-            System.out.println(makeName);
-            System.out.println(makeId);
-            System.out.println(modelName);
-            System.out.println(modelId);
+//            System.out.println(makeName + " " + makeId);
+//        }
+
+//        Elements model = doc.getElementsByClass("js-search-select-model").select("option");
+//        for (Element carModel : model) {
+//
+//            String modelName = carModel.text();
+//            String modelId = carModel.val();
+//            System.out.println(modelName + " " + modelId);
+//        }
+
+
+        Elements model = doc.getElementsByClass("js-search-select-model").select("option");
+//
+        for (Element carModel : model) {
+//            String makeName = String.valueOf(carModel.getElementsByClass("select optional form-control js-search-select-make").select("option"));
+            String modelName = carModel.text();
+            String modelId = carModel.val();
+            System.out.println(modelId + "           " + modelName);
         }
+
+
     }
 }
